@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Video from '@/components/Video.astro';
+import { Button } from '@/components/ui/button';
+import Loader from '@/components/Loader.astro';
+---
+
+<Layout title="Home | Astro Template">
+  <Loader />
+  <Video />
+
+  <section id="introduction"
+    class="mx-auto flex max-w-4xl flex-col items-center px-4 pb-20 pt-36 text-center lg:pb-36"
+  >
+    <h2 class="font-title text-balance text-5xl opacity-0" data-animation="fadeInUp" data-delay="0.2">Astro Template</h2>
+    <p class="my-4 text-xl opacity-0" data-animation="fadeIn" data-delay="0.4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae autem quos quia voluptates. Dolorum accusantium quae, repellendus odit, sequi quos ea tempore quibusdam iste, quod repellat. Nesciunt, nemo eos.
+    </p>
+    <div class="mt-2 flex gap-4 opacity-0" data-animation="fadeInScale" data-delay="0.6">
+      <Button>
+        <a href="/action">Action</a>
+      </Button>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { setupAnimations } from "@/lib/animations";
+
+  // Setup animations on initial load
+  setupAnimations(document.body);
+
+  // Re-run animations on client-side navigation
+  document.addEventListener('astro:page-load', () => {
+    setupAnimations(document.body);
+  });
+</script>
